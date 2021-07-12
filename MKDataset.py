@@ -11,14 +11,14 @@ class MKDataset(Dataset):
     def __init__(self, path):
         self.path = path
         self.pic_name = os.listdir(self.path)
-        self.mask_name = os.listdir('heatmap02')
+        self.mask_name = os.listdir('../content/Dataset/imr')
 
     def __len__(self):
         return len(self.pic_name)
 
     def __getitem__(self, index):
         pic_path = self.path
-        mask_path = 'heatmap02'
+        mask_path = '../content/Dataset/masks'
         pic = Image.open(os.path.join(pic_path, self.pic_name[index]))
         pic = pic.resize((512, 512), 1)
         mask = Image.open(os.path.join(mask_path, self.mask_name[index]))
@@ -28,5 +28,5 @@ class MKDataset(Dataset):
 
 
 if __name__ == '__main__':
-    dataset = MKDataset(r'C:\Users\Trible\Desktop\螺钉')
+    dataset = MKDataset(r'../content/Dataset')
     print(dataset[0])
