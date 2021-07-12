@@ -9,8 +9,8 @@ import Attention_UNet
 import MKDataset
 from MyLoss import BCEFocalLoss
 
-path = 'pic_train'
-module = 'model/module.pkl'
+path = '../content/Dataset/imr'
+module = '../module.pkl'
 epochs = 0
 
 net = Attention_UNet.MainNet(16).cuda()
